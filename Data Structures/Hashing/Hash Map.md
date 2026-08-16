@@ -1,14 +1,16 @@
+# Hash Map
+
 #dsa #java #collections #hashing
 
-## Definition
+## Formal Definition
 
-`HashMap` is a class in the Java Collections Framework that stores data in **key-value pairs**.
+A **HashMap** is a data structure in the Java Collections Framework that stores data in **key-value pairs**, using a hashing mechanism to map keys to their corresponding values with $O(1)$ average time complexity.
 
 - Each **key** must be unique.
 - Duplicate **values** are allowed.
 - Does **not** maintain insertion order.
 - Allows **one `null` key** and **multiple `null` values**.
-- Provides **O(1)** average time complexity for insertion, deletion, and searching.
+- Provides **$O(1)$** average time complexity for insertion, deletion, and searching.
 
 ---
 
@@ -26,28 +28,28 @@ HashMap<Integer, String> map = new HashMap<>();
 
 ---
 
-# Common Methods
+# Common Methods (Aam Method Functions)
 
-| Method | Description |
+| Method | Description (Kaam) |
 |---------|-------------|
-| `put(K key, V value)` | Inserts or updates a key-value pair. |
-| `get(Object key)` | Returns the value associated with the specified key. |
-| `remove(Object key)` | Removes the key-value pair from the map. |
-| `containsKey(Object key)` | Checks if the specified key exists. |
-| `containsValue(Object value)` | Checks if the specified value exists. |
-| `size()` | Returns the number of key-value pairs. |
-| `isEmpty()` | Returns `true` if the map is empty. |
-| `clear()` | Removes all key-value pairs. |
-| `keySet()` | Returns a set of all keys. |
-| `values()` | Returns a collection of all values. |
-| `entrySet()` | Returns a set of all key-value pairs. |
-| `getOrDefault(K key, V defaultValue)` | Returns the value for the key, or the default value if the key is not found. |
-| `putIfAbsent(K key, V value)` | Inserts the key-value pair only if the key is not already present. |
-| `replace(K key, V value)` | Replaces the value of an existing key. |
+| `put(K key, V value)` | Key-value pair insert ya update karta hai. |
+| `get(Object key)` | Specified key se associated value return karta hai. |
+| `remove(Object key)` | Specified key-value pair ko map se remove karta hai. |
+| `containsKey(Object key)` | Check karta hai kya specified key map mein exist karti hai. |
+| `containsValue(Object value)` | Check karta hai kya specified value map mein exist karti hai. |
+| `size()` | Total key-value pairs ki count return karta hai. |
+| `isEmpty()` | Agar map khali hai toh `true` return karta hai. |
+| `clear()` | Saare key-value pairs ko remove/clear kar deta hai. |
+| `keySet()` | Saari keys ka Set return karta hai. |
+| `values()` | Saari values ki Collection return karta hai. |
+| `entrySet()` | Saare key-value pairs (Entry objects) ka Set return karta hai. |
+| `getOrDefault(K key, V defaultValue)` | Key ki value return karta hai, aur agar key na mile toh default value return karta hai. |
+| `putIfAbsent(K key, V value)` | Pair tabhi insert karta hai jab key pehle se present na ho. |
+| `replace(K key, V value)` | Existing key ki value ko nayi value se replace karta hai. |
 
 ---
 
-# Example
+# Code Example (Java)
 
 ```java
 import java.util.HashMap;
@@ -57,14 +59,16 @@ public class Main {
 
         HashMap<Integer, String> map = new HashMap<>();
 
+        // Elements add karna
         map.put(1, "Apple");
         map.put(2, "Banana");
         map.put(3, "Mango");
 
-        System.out.println(map.get(2));          // Banana
-        System.out.println(map.containsKey(1));  // true
-        System.out.println(map.size());          // 3
+        System.out.println(map.get(2));          // Output: Banana
+        System.out.println(map.containsKey(1));  // Output: true
+        System.out.println(map.size());          // Output: 3
 
+        // Element remove karna
         map.remove(3);
 
         System.out.println(map);
@@ -74,7 +78,7 @@ public class Main {
 
 ---
 
-# Iterating a HashMap
+# Iterating a HashMap (Loop Chalana)
 
 ### Using `keySet()`
 
@@ -84,7 +88,7 @@ for (Integer key : map.keySet()) {
 }
 ```
 
-### Using `entrySet()`
+### Using `entrySet()` (Recommended)
 
 ```java
 for (Map.Entry<Integer, String> entry : map.entrySet()) {
@@ -94,38 +98,38 @@ for (Map.Entry<Integer, String> entry : map.entrySet()) {
 
 ---
 
-# Advantages
+# Advantages (Fayde)
 
-- Fast insertion, deletion, and searching.
-- Stores data as key-value pairs.
-- Allows one `null` key and multiple `null` values.
-- Easy to retrieve data using keys.
+- Insertion, deletion, aur searching mein super fast average time ($O(1)$).
+- Data ko intuitive **Key → Value** pairs mein store karta hai.
+- Ek `null` key aur multiple `null` values allow karta hai.
+- Key ke zariye direct data access karna extremely easy hai.
 
 ---
 
-# Disadvantages
+# Disadvantages (Nuksan)
 
-- Does not maintain insertion order.
-- Not synchronized (not thread-safe).
-- Performance may decrease if many hash collisions occur.
+- Insertion order maintain nahi rehta (Unordered data structure).
+- Non-synchronized hota hai (by default thread-safe nahi hai).
+- High hash collisions hone par performance degrade hokar $O(N)$ tak ja sakti hai.
 
 ---
 
 # Time Complexity
 
-| Operation | Average Time |
-|-----------|--------------|
-| Insert (`put`) | **O(1)** |
-| Search (`get`) | **O(1)** |
-| Delete (`remove`) | **O(1)** |
+| Operation | Average Time | Worst Case Time |
+|-----------|--------------|------------------|
+| Insert (`put`) | **$O(1)$** | **$O(N)$** |
+| Search (`get`) | **$O(1)$** | **$O(N)$** |
+| Delete (`remove`) | **$O(1)$** | **$O(N)$** |
 
 ---
 
-# Quick Revision
+# Quick Revision (Dhyaan Dene Yagya Baatein)
 
-- Stores **Key → Value** pairs.
-- Keys are **unique**.
-- Duplicate values are **allowed**.
-- No insertion order is maintained.
-- Allows **1 null key** and **multiple null values**.
-- Average time complexity: **O(1)**.
+- **Key → Value** mapping store karta hai.
+- Keys hamesha **unique** hoti hain.
+- Values duplicate ho sakti hain.
+- Insertion order preserve nahi hota.
+- Max **1 null key** aur multiple null values support karta hai.
+- Average time complexity: **$O(1)$**.

@@ -1,4 +1,4 @@
-Deletion in an ArrayList
+# Deletion in an ArrayList
 
 #dsa #java #arraylist
 
@@ -10,14 +10,14 @@ Delete an element from an **ArrayList** by index or by value.
 
 ---
 
-## Approach
+## Approach (Tarika)
 
-- Use `list.remove(index)` to delete the element at a specific position.
-- Use `list.remove(Object)` to delete the first occurrence of a specific value.
+- Specific index se element remove karne ke liye `list.remove(index)` ka use karo.
+- Specific value ki pehli occurrence ko delete karne ke liye `list.remove(Object)` ka use karo.
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 import java.util.ArrayList;
@@ -33,11 +33,11 @@ public class Main {
 
         System.out.println("Initial List: " + list);
 
-        // Remove by index
-        list.remove(2); // Removes element at index 2 (which is 30)
+        // Index ke dwara remove karna
+        list.remove(2); // Index 2 wale element ('30') ko remove karega
         System.out.println("After removing index 2: " + list);
 
-        // Remove by value (requires wrapping in an Object for integers)
+        // Value ke dwara remove karna (Integers ke liye Object wrapping zaroori hai)
         list.remove(Integer.valueOf(50));
         System.out.println("After removing value 50: " + list);
     }
@@ -60,12 +60,13 @@ After removing value 50: [10, 20, 40]
 
 | Operation | Complexity |
 |-----------|------------|
-| Remove (last element)| O(1) |
-| Remove (middle/start)| O(N) |
+| Remove (last element)| $O(1)$ |
+| Remove (middle/start)| $O(N)$ |
 
 ---
 
-## Key Points
+## Key Points (Khaas Baatein)
 
-- When dealing with an `ArrayList<Integer>`, using `remove(2)` defaults to index. To remove the integer value 2, use `remove(Integer.valueOf(2))`.
-- Like insertion, deletion involves shifting elements internally.
+- `ArrayList<Integer>` ke saath kaam karte waqt `remove(2)` default index 2 maanta hai. Integer value 2 ko remove karne ke liye `remove(Integer.valueOf(2))` pass karna hota hai.
+- Insertion ki tarah, deletion mein bhi internally items shifted hote hain.
+

@@ -1,28 +1,32 @@
-Selection Sort
+# Selection Sort
 
 #dsa #algorithms #sorting #java
 
-## 1. The "Explain like I'm 5" Definition
+## 1. Formal Definition
 
-Imagine you have a messy shelf of books. To sort them, you look through every single book to find the thinnest one, and you place it at the very start of the shelf. Then, you look through the *remaining* books, find the next thinnest, and put it in the second spot. You repeat this until the shelf is sorted.
+**Selection Sort** is an in-place comparison sorting algorithm that divides the array into a sorted and an unsorted region, repeatedly selecting the smallest element from the unsorted region and moving it to the end of the sorted region.
 
-**Selection Sort** works by scanning the array to "select" the absolute smallest element, and then swapping it to the front. 
+## 2. "Explain like I'm 5" (Aasan Bhasha Mein)
 
-## 2. Real-Life Analogy
+Socho tumhare paas books ki ek bikhari hui shelf hai. Unhe sort karne ke liye tum poori shelf par har ek book check karte ho aur sabse thinnest (patli) book dhoondh kar sabse pehle spot par rakh dete ho. Phir tum *bachi hui* books mein se next thinnest book dhundhte ho aur use second spot par rakh dete ho. Tum tab tak yahi karte rehte ho jab tak poori shelf sort na ho jaye.
 
-Picking a team for gym class. You scan the entire group to pick the fastest runner first. Then you scan the remaining group for the second fastest runner, and so on.
+**Selection Sort** poore array ko scan karke absolute smallest element ko "select" karta hai aur use front par swap kar deta hai.
 
-## 3. How it Works (Step-by-Step)
+## 3. Real-Life Analogy
 
-1. Start at index 0. This is the beginning of your "unsorted" portion.
-2. Scan the entire array from index 0 to the end to find the minimum value.
-3. Once found, swap this minimum value with the element at index 0. Now index 0 is "sorted".
-4. Move your starting point to index 1. 
-5. Scan from index 1 to the end to find the minimum of the *remaining* elements.
-6. Swap it with the element at index 1.
-7. Repeat this process, shifting the starting point one step to the right each time, until the whole array is sorted.
+Gym class mein team choose karna. Tum poore group ko scan karke sabse fast runner ko pehle pick karte ho. Phir bache hue group ko scan karke second fastest runner ko pick karte ho, aur aage bhi aisa hi karte ho.
 
-## 4. The Code (Java)
+## 4. How it Works (Step-by-Step Logic)
+
+1. Index 0 se start karo. Yeh tumhare "unsorted" portion ka beginning point hai.
+2. Index 0 se end tak poore array ko scan karo minimum value dhoondhne ke liye.
+3. Jab minimum value mil jaye, use index 0 wale element ke saath swap kar do. Ab index 0 "sorted" ho gaya.
+4. Apne starting point ko index 1 par shift karo.
+5. Index 1 se end tak scan karke *remaining* elements mein se minimum dhoondho.
+6. Use index 1 wale element ke saath swap kar do.
+7. Is process ko repeat karo, har baar starting point ko ek step right shift karte jao, jab tak poora array sort na ho jaye.
+
+## 5. The Code (Java)
 
 ```java
 import java.util.Arrays;
@@ -31,9 +35,9 @@ public class Main {
     public static void selectionSort(int[] arr) {
         int n = arr.length;
 
-        // One by one move boundary of unsorted subarray
+        // Unsorted subarray ki boundary ek-ek karke aage badhao
         for (int i = 0; i < n - 1; i++) {
-            // Find the minimum element in unsorted array
+            // Unsorted array mein minimum element dhoondho
             int minIndex = i;
             for (int j = i + 1; j < n; j++) {
                 if (arr[j] < arr[minIndex]) {
@@ -41,7 +45,7 @@ public class Main {
                 }
             }
 
-            // Swap the found minimum element with the first element of the unsorted part
+            // Dhoondhe gaye minimum element ko unsorted part ke pehle element se swap karo
             int temp = arr[minIndex];
             arr[minIndex] = arr[i];
             arr[i] = temp;
@@ -56,28 +60,29 @@ public class Main {
 }
 ```
 
-## 5. Complexity Analysis (The Interview Stuff)
+## 6. Complexity Analysis (Interview Perspective)
 
 | Scenario | Time Complexity | Explanation |
 | :--- | :--- | :--- |
-| **Best Case** | $O(N^2)$ | Even if the array is already sorted, it still scans the remaining elements every single time to ensure it found the minimum. |
-| **Worst Case** | $O(N^2)$ | Array is reverse sorted. |
-| **Average Case** | $O(N^2)$ | Random data. |
+| **Best Case** | $O(N^2)$ | Array agar pehle se sorted bhi ho, tab bhi yeh har baar remaining elements ko scan karke minimum confirm karta hai. |
+| **Worst Case** | $O(N^2)$ | Array reverse sorted ho. |
+| **Average Case** | $O(N^2)$ | Random unsorted data. |
 
-- **Space Complexity:** $O(1)$ because it sorts in-place.
+- **Space Complexity:** $O(1)$ kyunki in-place sorting karta hai.
 
-## 6. When to use it?
+## 7. Kab Use Karein? (When to Use)
 
-- When you are sorting on a system where memory write operations (swapping) are extremely expensive. Selection sort makes at most $O(N)$ swaps, whereas Bubble Sort and Insertion Sort can make $O(N^2)$ swaps. 
-- Generally avoided for large lists due to its poor time complexity.
+- Jab tum kisi aise system par sorting kar rahe ho jahan memory write operations (swapping) bahut expensive hote hain. Selection sort maximum $O(N)$ swaps karta hai, jabki Bubble Sort aur Insertion Sort $O(N^2)$ swaps kar sakte hain.
+- Poor time complexity ki wajah se bade lists ke liye ise avoid hi kiya jata hai.
 
-## 7. Pros & Cons
+## 8. Pros & Cons
 
 **Pros:**
-- Simple to understand.
-- Never makes more than $O(N)$ swaps, which is good if writing to memory is a bottleneck.
+- Samajhne mein simple hai.
+- Kabhi bhi $O(N)$ se zyaada swaps nahi karta, jo memory writing cost kam karne ke liye accha hai.
 - In-place sorting ($O(1)$ space).
 
 **Cons:**
-- Always takes $O(N^2)$ time, even if the array is already perfectly sorted.
-- Not a stable sort by default (meaning equal elements might swap relative positions).
+- Hamesha $O(N^2)$ time leta hai, chahe array pehle se perfectly sorted hi kyun na ho.
+- By default stable sort nahi hota (equal elements relative position change kar sakte hain).
+

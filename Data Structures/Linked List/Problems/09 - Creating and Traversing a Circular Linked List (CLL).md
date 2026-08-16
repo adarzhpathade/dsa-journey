@@ -1,4 +1,4 @@
-Creating and Traversing a Circular Linked List (CLL)
+# Creating and Traversing a Circular Linked List (CLL)
 
 #dsa #java #linkedlist #cll
 
@@ -10,7 +10,7 @@ Create a Circular Linked List and traverse it until it reaches the head again.
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 class Node {
@@ -27,7 +27,7 @@ public class Main {
 
         head.next = second;
         second.next = third;
-        // Make it circular by connecting the last node to the head
+        // Last node ko head se connect karke list ko circular banao
         third.next = head; 
 
         // Traversal
@@ -36,7 +36,7 @@ public class Main {
             do {
                 System.out.print(current.data + " -> ");
                 current = current.next;
-            } while (current != head); // Stop when we loop back to head
+            } while (current != head); // Jab tak wapas head tak na pahunch jayein stop mat karo
             
             System.out.println("(Back to Head)");
         }
@@ -54,6 +54,7 @@ public class Main {
 
 ---
 
-## Key Points
+## Key Points (Khaas Baatein)
 
-- You **must** use a `do-while` loop for traversal, otherwise the loop condition `current != head` will fail immediately on the first iteration.
+- CLL traversal ke liye **`do-while`** loop use karna mandatory hai, varna standard `while(current != head)` loop condition pehle hi iteration par fail ho jayegi kyunki initial stage par `current = head` hota hai.
+

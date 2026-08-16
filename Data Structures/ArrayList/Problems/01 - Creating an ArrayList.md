@@ -1,4 +1,4 @@
-Creating an ArrayList
+# Creating an ArrayList
 
 #dsa #java #arraylist
 
@@ -10,15 +10,15 @@ Create a dynamic **ArrayList** in Java, add elements to it, and access them.
 
 ---
 
-## Approach
+## Approach (Tarika)
 
-- Instantiate an `ArrayList` object.
-- Use the `add(element)` method to insert elements at the end.
-- Use the `get(index)` method to access an element.
+- `ArrayList` class ka object instantiate karo.
+- End mein elements add karne ke liye `add(element)` method ka use karo.
+- Index se element access karne ke liye `get(index)` method ka use karo.
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 import java.util.ArrayList;
@@ -28,12 +28,12 @@ public class Main {
         // Initialization
         ArrayList<Integer> list = new ArrayList<>();
         
-        // Adding elements
+        // Elements add karna
         list.add(10);
         list.add(20);
         list.add(30);
 
-        // Accessing elements
+        // Elements access karna
         System.out.println("First element: " + list.get(0));
         System.out.println("Second element: " + list.get(1));
     }
@@ -55,12 +55,13 @@ Second element: 20
 
 | Operation | Complexity |
 |-----------|------------|
-| Appending element | O(1) amortized |
-| Accessing by index | O(1) |
+| Appending element | $O(1)$ amortized |
+| Accessing by index | $O(1)$ |
 
 ---
 
-## Key Points
+## Key Points (Khaas Baatein)
 
-- ArrayList size grows dynamically.
-- Requires wrapper classes (e.g., `Integer` instead of `int`).
+- ArrayList ka size dynamically automatically grow hota rehta hai.
+- Primitive types ke liye Wrapper classes (`int` ke bajaye `Integer`) use karni padti hain.
+

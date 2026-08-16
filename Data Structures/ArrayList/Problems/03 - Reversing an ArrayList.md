@@ -1,4 +1,4 @@
-Reversing an ArrayList
+# Reversing an ArrayList
 
 #dsa #java #arraylist
 
@@ -10,14 +10,14 @@ Reverse the elements of an **ArrayList** in-place.
 
 ---
 
-## Approach
+## Approach (Tarika)
 
-- **Method 1:** Use `Collections.reverse(list)` for the built-in way.
-- **Method 2:** Use two pointers (`start` and `end`), swapping elements using `list.set()` and `list.get()`.
+- **Method 1 (Built-in):** Built-in method `Collections.reverse(list)` ka use karo.
+- **Method 2 (Two-Pointer):** Two pointers (`start` aur `end`) set karo, aur `list.set()` & `list.get()` ka use karke values swap karo.
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 import java.util.ArrayList;
@@ -31,11 +31,11 @@ public class Main {
         list.add(30);
         list.add(40);
 
-        // Built-in approach
+        // Built-in method se reverse
         Collections.reverse(list);
         System.out.println("After built-in reverse: " + list);
 
-        // Two-pointer approach
+        // Two-pointer method se manual reverse
         int start = 0;
         int end = list.size() - 1;
 
@@ -68,11 +68,12 @@ After manual reverse again: [10, 20, 30, 40]
 
 | Operation | Complexity |
 |-----------|------------|
-| Reversing | O(N) |
+| Reversing | $O(N)$ |
 
 ---
 
-## Key Points
+## Key Points (Khaas Baatein)
 
-- `Collections.reverse()` is the standard and most readable way in Java.
-- Manual reversal requires `set()` method instead of array index assignment `[]`.
+- `Collections.reverse()` Java mein list reverse karne ka standard aur most readable tarika hai.
+- Manual reversal mein direct `arr[i]` bracket assign karne ke bajaye `set(index, value)` method ka use hota hai.
+

@@ -1,4 +1,4 @@
-Printing an ArrayList
+# Printing an ArrayList
 
 #dsa #java #arraylist
 
@@ -10,15 +10,15 @@ Traverse and print all elements of an **ArrayList**.
 
 ---
 
-## Approach
+## Approach (Tarika)
 
-- Use a `for` loop with `list.size()` and `list.get(i)`.
-- Use a `for-each` loop.
-- Directly print the list object (it overrides `toString()`).
+- `list.size()` aur `list.get(i)` ke saath standard `for` loop use karo.
+- Clean code ke liye `for-each` loop use kar sakte ho.
+- Direct `list` object ko print kar sakte ho kyunki `ArrayList` mein `toString()` overloaded hota hai.
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 import java.util.ArrayList;
@@ -30,19 +30,19 @@ public class Main {
         list.add(20);
         list.add(30);
 
-        // Method 1: standard for-loop
+        // Method 1: Standard for-loop
         for (int i = 0; i < list.size(); i++) {
             System.out.print(list.get(i) + " ");
         }
         System.out.println();
 
-        // Method 2: for-each loop
+        // Method 2: For-each loop
         for (int num : list) {
             System.out.print(num + " ");
         }
         System.out.println();
 
-        // Method 3: Direct print
+        // Method 3: Direct object print
         System.out.println(list);
     }
 }
@@ -64,11 +64,12 @@ public class Main {
 
 | Operation | Complexity |
 |-----------|------------|
-| Traversing | O(N) |
+| Traversing | $O(N)$ |
 
 ---
 
-## Key Points
+## Key Points (Khaas Baatein)
 
-- `size()` gives the number of elements, not the capacity.
-- Direct printing `System.out.println(list)` is very convenient for debugging.
+- `size()` present elements ki count deta hai, total capacity nahi.
+- Debugging ke waqt direct `System.out.println(list)` print karna sabse convenient tarika hota hai.
+

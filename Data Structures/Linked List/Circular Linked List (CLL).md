@@ -1,13 +1,16 @@
-#dsa #java #linkedlist #cll
-## Definition
+# Circular Linked List (CLL)
 
-A **Circular Linked List (CLL)** is a variation of a linked list in which the first element points to the second element and so on, but the **last element points back to the first element (head)**. It forms a continuous loop.
+#dsa #java #linkedlist #cll
+
+## Formal Definition
+
+A **Circular Linked List (CLL)** is a variation of a linked list in which all nodes are connected in a continuous circle, where the **last node's `next` pointer points back to the first node (head)** instead of `null`.
 
 It can be either a Singly Circular Linked List or a Doubly Circular Linked List. By default, it usually refers to the singly linked variation.
 
 ---
 
-## Structure
+## Visual Structure
 
 ```text
      Head
@@ -22,7 +25,7 @@ It can be either a Singly Circular Linked List or a Doubly Circular Linked List.
 
 ---
 
-## Node Declaration
+## Node Declaration (Java)
 
 *(Same as Singly Linked List)*
 
@@ -40,31 +43,31 @@ class Node {
 
 ---
 
-# Common Operations
+# Common Operations (Standard Operations)
 
-| Method                | Description                                  |
+| Method | Description (Kaam) |
 | --------------------- | -------------------------------------------- |
-| `insertAtBeginning()` | Inserts a node at the beginning of the list. |
-| `insertAtEnd()`       | Inserts a node at the end of the list.       |
-| `deleteAtBeginning()` | Removes the first node.                      |
-| `deleteAtEnd()`       | Removes the last node.                       |
-| `search()`            | Searches for a value in the list.            |
-| `display()`           | Traverses and prints all nodes until the head is reached again. |
+| `insertAtBeginning()` | List ke Head position par naya node add karta hai. |
+| `insertAtEnd()` | List ke End (Tail) par naya node add karta hai. |
+| `deleteAtBeginning()` | Pehla node (Head) remove karta hai. |
+| `deleteAtEnd()` | Last node remove karta hai. |
+| `search()` | Target value ko search karta hai. |
+| `display()` | Head se shuru karke wapas Head aane tak sabhi nodes print karta hai. |
 
 ---
 
-# Advantages
+# Advantages (Fayde)
 
-- Any node can be a starting point. We can traverse the whole list by starting from any node.
-- Useful for implementing round-robin scheduling algorithms or multiplayer games (e.g., turn-based).
-- Can avoid the `null` check at the end.
+- Kisi bhi node se starting karke poori list ko traverse kiya ja sakta hai.
+- Round-robin scheduling algorithms ya turn-based multiplayer games ke liye extremely useful hai.
+- End mein `null` check karne ki requirement nahi hoti.
 
 ---
 
-# Disadvantages
+# Disadvantages (Nuksan)
 
-- Complex implementation (you must be careful to avoid infinite loops during traversal).
-- If not handled properly, code can run infinitely since there is no `null` terminator.
+- Implementation thodi complex hoti hai (traversal ke waqt infinite loop se bachna padta hai).
+- Sahi condition na lagane par code infinitely run kar sakta hai kyunki ending point mein `null` pointer nahi hota.
 
 ---
 
@@ -72,18 +75,19 @@ class Node {
 
 | Operation | Complexity |
 |-----------|------------|
-| Insert at Beginning | **O(n)** *(must update last node's next)* or **O(1)** *(if tail pointer kept)* |
-| Insert at End | **O(n)** or **O(1)** *(if tail pointer kept)* |
-| Delete at Beginning | **O(n)** or **O(1)** *(if tail pointer kept)* |
-| Delete at End | **O(n)** |
-| Search | **O(n)** |
-| Traverse | **O(n)** |
+| Insert at Beginning | **$O(N)$** *(last node ka next update karna padta hai)* ya **$O(1)$** *(agar tail pointer rakha ho)* |
+| Insert at End | **$O(N)$** ya **$O(1)$** *(agar tail pointer rakha ho)* |
+| Delete at Beginning | **$O(N)$** ya **$O(1)$** *(agar tail pointer rakha ho)* |
+| Delete at End | **$O(N)$** |
+| Search | **$O(N)$** |
+| Traverse | **$O(N)$** |
 
 ---
 
-# Quick Revision
+# Quick Revision (Dhyaan Dene Yagya Baatein)
 
-- The last node points back to the **first node**.
-- Forms a closed loop (no `null` pointers).
-- Can traverse the entire list starting from *any* node.
-- Great for repetitive, cyclical tasks (like a media player playlist loop).
+- Last node ka Next pointer **first node (head)** par point karta hai.
+- Closed loop banata hai (koi `null` pointer nahi hota).
+- Kisi bhi random node se start karke poori list traverse kar sakte hain.
+- Repetitive cyclic tasks (jaise playlist loop) ke liye perfect hai.
+

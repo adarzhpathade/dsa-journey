@@ -1,4 +1,4 @@
-Deletion in an Array
+# Deletion in an Array
 
 #dsa #java #array
 
@@ -10,15 +10,15 @@ Delete an element from a specific index in an **Array**.
 
 ---
 
-## Approach
+## Approach (Tarika)
 
-- Find the index of the element to delete.
-- Shift all elements to the right of this index one position to the left.
-- Decrement the logical size of the array.
+- Delete ki jaane wali position (target index) find karo.
+- Target index ke right side wale sabhi elements ko ek position left side shift (`arr[i] = arr[i + 1]`) karo gap ko fill karne ke liye.
+- Array ke logical size count ko decrement (`size--`) kar do.
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 import java.util.Arrays;
@@ -28,19 +28,19 @@ public class Main {
         int[] arr = {10, 20, 30, 40, 50};
         int size = 5;
         
-        int targetIndex = 2; // Delete element '30'
+        int targetIndex = 2; // Index 2 par rakhe element '30' ko delete karna hai
 
-        // Shift elements to the left
+        // Elements ko left shift karo gap fill karne ke liye
         for (int i = targetIndex; i < size - 1; i++) {
             arr[i] = arr[i + 1];
         }
         
-        // Optional: clear the last element (for reference types, to avoid memory leaks)
+        // Optional: Last element clear kar sakte ho
         arr[size - 1] = 0;
         size--;
 
         System.out.print("Array after deletion: ");
-        for(int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             System.out.print(arr[i] + " ");
         }
     }
@@ -61,12 +61,13 @@ Array after deletion: 10 20 40 50
 
 | Operation | Complexity |
 |-----------|------------|
-| Deletion (at end) | O(1) |
-| Deletion (at beginning/middle) | O(N) |
+| Deletion (at end) | $O(1)$ |
+| Deletion (at beginning/middle) | $O(N)$ |
 
 ---
 
-## Key Points
+## Key Points (Khaas Baatein)
 
-- Deletion in an array requires shifting elements to fill the gap.
-- The physical size (`arr.length`) remains unchanged, but the logical `size` is reduced.
+- Array mein delete karne ke baad bane gap ko bharne ke liye elements ko left shift karna zaroori hota hai.
+- Array ka physical capacity (`arr.length`) wahi rehta hai, bas logical `size` kam hota hai.
+

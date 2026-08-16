@@ -1,4 +1,4 @@
-Reversing an Array
+# Reversing an Array
 
 #dsa #java #array
 
@@ -10,16 +10,16 @@ Reverse the elements of an **Array** in-place.
 
 ---
 
-## Approach
+## Approach (Two-Pointer Technique)
 
-- Use two pointers: `start` at index `0` and `end` at index `n - 1`.
-- Swap the elements at the `start` and `end` indices.
-- Increment `start` and decrement `end`.
-- Repeat until `start` >= `end`.
+- Do pointers use karo: `start` ko index `0` par aur `end` ko last index (`arr.length - 1`) par set karo.
+- `start` aur `end` indices par rakhe elements ko swap karo.
+- `start` ko increment (`start++`) karo aur `end` ko decrement (`end--`) karo.
+- Is process ko repeat karte raho jab tak `start < end` rahe.
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 import java.util.Arrays;
@@ -32,7 +32,7 @@ public class Main {
         int end = arr.length - 1;
 
         while (start < end) {
-            // Swap
+            // Swap logic
             int temp = arr[start];
             arr[start] = arr[end];
             arr[end] = temp;
@@ -56,16 +56,17 @@ public class Main {
 
 ---
 
-## Time Complexity
+## Time & Space Complexity
 
 | Operation | Complexity |
 |-----------|------------|
-| Reversing | O(N) |
-| Space Complexity | O(1) |
+| Reversing | $O(N)$ |
+| Auxiliary Space | $O(1)$ |
 
 ---
 
-## Key Points
+## Key Points (Khaas Baatein)
 
-- In-place reversal saves memory space.
-- Two-pointer approach is optimal for this problem.
+- In-place reversal karne se memory space bachta hai kyunki extra array create nahi karna padta.
+- Two-pointer approach is problem ko solve karne ka sabse optimal tarika hai.
+

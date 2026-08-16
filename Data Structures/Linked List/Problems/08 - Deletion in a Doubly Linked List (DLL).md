@@ -1,4 +1,4 @@
-Deletion in a Doubly Linked List (DLL)
+# Deletion in a Doubly Linked List (DLL)
 
 #dsa #java #linkedlist #dll
 
@@ -10,7 +10,7 @@ Delete a given node from a Doubly Linked List.
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 class Node {
@@ -25,17 +25,17 @@ public class Main {
     public static void deleteNode(Node del) {
         if (head == null || del == null) return;
 
-        // If node to be deleted is head node
+        // Agar delete hone wala node head node hi hai
         if (head == del) {
             head = del.next;
         }
 
-        // Change next only if node to be deleted is NOT the last node
+        // Agle node ka prev pointer update karo tabhi agar del last node NA ho
         if (del.next != null) {
             del.next.prev = del.prev;
         }
 
-        // Change prev only if node to be deleted is NOT the first node
+        // Pichle node ka next pointer update karo tabhi agar del pehla node NA ho
         if (del.prev != null) {
             del.prev.next = del.next;
         }
@@ -49,7 +49,7 @@ public class Main {
         head.next = second; second.prev = head;
         second.next = third; third.prev = second;
 
-        // Delete the middle node (20)
+        // Middle node (20) ko delete karo
         deleteNode(second);
 
         Node current = head;
@@ -72,6 +72,7 @@ public class Main {
 
 ---
 
-## Key Points
+## Key Points (Khaas Baatein)
 
-- Deletion in a DLL is easier than an SLL if you are given the node itself, because you have the `prev` pointer and don't need to traverse to find the previous node.
+- DLL mein direct node pointer pata hone par deletion SLL se zyaada easy hota hai kyunki humare paas `prev` pointer hota hai aur piche wale node tak poori list traverse karne ki zaroorat nahi padti.
+

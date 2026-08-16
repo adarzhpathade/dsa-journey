@@ -1,4 +1,4 @@
-Printing a Singly Linked List (SLL)
+# Printing a Singly Linked List (SLL)
 
 #dsa #java #linkedlist #sll
 
@@ -10,16 +10,16 @@ Print all the elements of a **Singly Linked List** by traversing it from the **h
 
 ---
 
-## Approach
+## Approach (Tarika)
 
-- Create a temporary pointer (`current`) and initialize it with `head`.
-- Traverse the list until `current` becomes `null`.
-- Print the data of each node.
-- Move `current` to the next node.
+- Ek temporary pointer (`current`) banao aur ise `head` se initialize karo.
+- Tab tak list traverse karo jab tak `current` pointer `null` na ho jaye.
+- Har node ka data print karo.
+- `current` pointer ko agle node par move (`current = current.next`) karo.
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 class Node {
@@ -76,7 +76,7 @@ Head
 [10 | • ] ───► [20 | • ] ───► [30 | null]
 ```
 
-Traversal:
+Step-by-step Traversal:
 
 ```text
 current = head
@@ -95,25 +95,18 @@ null (Stop)
 
 ---
 
-## Time Complexity
+## Time & Space Complexity
 
 | Operation | Complexity |
 |-----------|------------|
-| Printing / Traversing | O(n) |
+| Printing / Traversing | $O(N)$ |
+| Auxiliary Space | $O(1)$ |
 
 ---
 
-## Space Complexity
+## Key Points (Khaas Baatein)
 
-| Complexity |
-|------------|
-| O(1) |
-
----
-
-## Key Points
-
-- Traversal always starts from the **head**.
-- Continue until `current == null`.
-- Every node is visited exactly once.
-- Printing a linked list is a traversal operation.
+- Traversal hamesha **head** node se start hoti hai.
+- Loop tab tak chalta hai jab tak `current == null` na ho jaye.
+- Har node exact ek baar visit hota hai.
+- Linked list ko print karna Basically ek traversal operation hi hai.

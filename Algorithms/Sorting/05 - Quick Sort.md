@@ -1,65 +1,68 @@
-Quick Sort
+# Quick Sort
 
 #dsa #algorithms #sorting #java #divide_and_conquer
 
-## 1. The "Explain like I'm 5" Definition
+## 1. Formal Definition
 
-Imagine you are organizing a group of people by height. You randomly pick one person (let's call them the "Pivot"). You tell everyone shorter than the Pivot to stand on the left, and everyone taller to stand on the right. Now, the Pivot is perfectly in their correct spot! Then, you tell the left group to do the exact same thing amongst themselves, and the right group to do the exact same thing. 
+**Quick Sort** is an efficient divide-and-conquer sorting algorithm that selects a 'pivot' element, partitions the array around the pivot such that smaller elements move to the left and larger elements move to the right, and then recursively sorts the sub-arrays.
 
-**Quick Sort** is a "Divide and Conquer" algorithm. It picks a "pivot" element and partitions the array so everything smaller is on the left and everything larger is on the right, then recursively does this for the left and right halves.
+## 2. "Explain like I'm 5" (Aasan Bhasha Mein)
 
-## 2. Real-Life Analogy
+Socho tum logon ke ek group ko height ke according organize kar rahe ho. Tum kisi ek banda ko randomly pick karte ho (use hum "Pivot" bolenge). Tum Pivot se chote sabhi logon ko uske left side khada hone bolte ho aur Pivot se lambe logon ko right side. Ab Pivot apni exact correct final position par hai! Uske baad tum left group ko wahi same process unke aapas mein karne bolte ho, aur right group ko bhi wahi karne bolte ho.
 
-Organizing your closet. You grab a random shirt (the pivot). You put all shirts you wear more often than this one on the left, and all shirts you wear less often on the right. Now that shirt is in the perfect spot. You repeat this for the left pile and the right pile.
+**Quick Sort** ek "Divide and Conquer" algorithm hai. Yeh ek "pivot" element select karta hai aur array ko partition kar deta hai taaki sabhi chote elements left mein aur bade elements right mein aa jayein, aur fir left aur right halves par recursively yahi apply karta hai.
 
-## 3. How it Works (Step-by-Step)
+## 3. Real-Life Analogy
 
-1. **Pick a Pivot:** Choose an element from the array to be the pivot (often the last element, the first element, or a random element).
-2. **Partition:** Rearrange the array so that:
-   - All elements less than the pivot are placed before it.
-   - All elements greater than the pivot are placed after it.
-   - The pivot is now in its final, sorted position.
-3. **Recursion:** Recursively apply the above steps to the sub-array of elements with smaller values (left of the pivot) and the sub-array of elements with greater values (right of the pivot).
-4. The base case for recursion is an array of size 0 or 1, which is already sorted.
+Apne closet (almirah) ko organize karna. Tum randomly ek shirt uthate ho (pivot). Is shirt se zyaada pehenne wali shirts ko tum left mein rakhte ho aur kam pehenne wali shirts ko right mein. Ab woh shirt bilkul perfect spot par hai. Tum left pile aur right pile ke liye yahi step repeat karte ho.
 
-## 4. The Code (Java)
+## 4. How it Works (Step-by-Step Logic)
+
+1. **Pivot Select Karo:** Array se ek element ko pivot maano (commonly last element, first element, ya random element).
+2. **Partitioning:** Array ko rearrange karo taaki:
+   - Pivot se chote sabhi elements pivot ke pehle (left) aa jayein.
+   - Pivot se bade sabhi elements pivot ke baad (right) aa jayein.
+   - Pivot ab apni final sorted position par set ho jata hai.
+3. **Recursion:** Left sub-array (pivot se chote) aur right sub-array (pivot se bade) par recursively upar wale steps apply karo.
+4. Recursion ka base case 0 ya 1 size ka array hota hai, jo pehle se sorted hi maana jata hai.
+
+## 5. The Code (Java)
 
 ```java
 import java.util.Arrays;
 
 public class Main {
 
-    // Main function that implements QuickSort
+    // QuickSort implement karne wala main function
     public static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
-            // pi is partitioning index, arr[pi] is now at right place
+            // pi partitioning index hai, arr[pi] ab sahi jagah par hai
             int pi = partition(arr, low, high);
 
-            // Recursively sort elements before partition and after partition
+            // Partition ke pehle aur baad ke elements ko recursively sort karo
             quickSort(arr, low, pi - 1);
             quickSort(arr, pi + 1, high);
         }
     }
 
-    // This function takes last element as pivot, places the pivot element at its 
-    // correct position in sorted array, and places all smaller to left of pivot 
-    // and all greater elements to right of pivot
+    // Yeh function last element ko pivot manta hai, pivot ko sahi jagah par place karta hai,
+    // aur chote elements left mein aur bade elements right mein set karta hai
     private static int partition(int[] arr, int low, int high) {
         int pivot = arr[high]; 
-        int i = (low - 1); // index of smaller element
+        int i = (low - 1); // chote element ka index
         
         for (int j = low; j < high; j++) {
-            // If current element is smaller than the pivot
+            // Agar current element pivot se chota hai
             if (arr[j] < pivot) {
                 i++;
-                // swap arr[i] and arr[j]
+                // arr[i] aur arr[j] ko swap karo
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
         }
         
-        // swap arr[i+1] and arr[high] (or pivot)
+        // arr[i+1] aur arr[high] (pivot) ko swap karo
         int temp = arr[i + 1];
         arr[i + 1] = arr[high];
         arr[high] = temp;
@@ -75,28 +78,29 @@ public class Main {
 }
 ```
 
-## 5. Complexity Analysis (The Interview Stuff)
+## 6. Complexity Analysis (Interview Perspective)
 
 | Scenario | Time Complexity | Explanation |
 | :--- | :--- | :--- |
-| **Best Case** | $O(N \log N)$ | The pivot picked always happens to be the exact median, splitting the array perfectly in half every time. |
-| **Worst Case** | $O(N^2)$ | The array is already sorted (or reverse sorted) and you always pick the last element as the pivot. It only reduces the array size by 1 each time. |
-| **Average Case** | $O(N \log N)$ | On average, the pivot splits the array relatively evenly. |
+| **Best Case** | $O(N \log N)$ | Choosed pivot hamesha exact median element hota hai, jisse array har baar perfectly aadha split hota hai. |
+| **Worst Case** | $O(N^2)$ | Array pehle se sorted hai (ya reverse sorted) aur tum hamesha last element ko pivot banate ho. Har baar size sirf 1 se kam hota hai. |
+| **Average Case** | $O(N \log N)$ | Average case mein pivot relatively evenly split kar deta hai. |
 
-- **Space Complexity:** $O(\log N)$ due to the recursive call stack space. It sorts in-place (no temporary arrays like Merge Sort).
+- **Space Complexity:** $O(\log N)$ recursive call stack space ke liye. Yeh in-place sort karta hai (Merge Sort ki tarah temporary arrays nahi lagte).
 
-## 6. When to use it?
+## 7. Kab Use Karein? (When to Use)
 
-- **Almost everywhere.** It is widely considered the best general-purpose sorting algorithm.
-- Used in Java's `Arrays.sort()` for primitives (`int`, `char`, etc.) because it's extremely fast and doesn't require extra memory.
-- When you need high performance and memory is a concern (since it's in-place).
+- **Lagbhag har jagah.** Ise sabse best general-purpose sorting algorithm mana jata hai.
+- Java ke `Arrays.sort()` mein primitive types (`int`, `char`, etc.) sort karne ke liye use hota hai kyunki yeh extremely fast hai aur extra memory nahi leta.
+- Jab high performance chahiye ho aur memory efficiency zaroori ho.
 
-## 7. Pros & Cons
+## 8. Pros & Cons
 
 **Pros:**
-- Extremely fast in practice (often faster than Merge Sort because it has better cache locality).
-- Sorts in-place, meaning it uses very little extra memory ($O(\log N)$).
+- Practice mein extremely fast ($O(N \log N)$ category mein cache locality acchi hone ki wajah se often Merge Sort se bhi tez hota hai).
+- In-place sorting ($O(\log N)$ extra space stack ke liye).
 
 **Cons:**
-- Worst-case time complexity is $O(N^2)$ (though this can be mitigated by picking a random pivot).
-- It is **not stable** (equal elements might swap relative positions).
+- Worst-case time complexity $O(N^2)$ ho sakti hai (halanki random pivot choice se ise avoid kiya ja sakta hai).
+- **Stable sort nahi hai** (equal elements relative position switch kar sakte hain).
+

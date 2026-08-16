@@ -1,4 +1,4 @@
-Creating a Circular Doubly Linked List (CDLL)
+# Creating a Circular Doubly Linked List (CDLL)
 
 #dsa #java #linkedlist #cdll
 
@@ -10,7 +10,7 @@ Create a Circular Doubly Linked List where the last node links to the first, and
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 class Node {
@@ -25,17 +25,17 @@ public class Main {
         Node second = new Node(20);
         Node third = new Node(30);
 
-        // Forward links
+        // Forward links (next pointers)
         head.next = second;
         second.next = third;
-        third.next = head; // Last to first
+        third.next = head; // Last node se first node link
 
-        // Backward links
-        head.prev = third; // First to last
+        // Backward links (prev pointers)
+        head.prev = third; // First node se last node link
         second.prev = head;
         third.prev = second;
 
-        // Traverse forward
+        // Forward Traversal
         Node current = head;
         System.out.print("Forward: ");
         do {
@@ -44,7 +44,7 @@ public class Main {
         } while (current != head);
         System.out.println("(Head)");
 
-        // Traverse backward (start from head.prev which is the last node)
+        // Backward Traversal (Last node head.prev se start karke reverse aao)
         current = head.prev;
         System.out.print("Backward (starting from last): ");
         do {
@@ -67,6 +67,7 @@ Backward (starting from last): 30 <-> 20 <-> 10 <-> (Last)
 
 ---
 
-## Key Points
+## Key Points (Khaas Baatein)
 
-- Notice how easy it is to find the last node (`head.prev`). This makes inserting at the end an $O(1)$ operation without needing a separate `tail` pointer.
+- Dhyaan do ki `head.prev` ka use karke last node kitna easily access ho jata hai. Is wajah se bina separate `tail` pointer rakhe end mein insertion $O(1)$ constant time operation ban jata hai.
+

@@ -1,4 +1,4 @@
-Insertion in a Doubly Linked List (DLL)
+# Insertion in a Doubly Linked List (DLL)
 
 #dsa #java #linkedlist #dll
 
@@ -10,7 +10,7 @@ Insert a new node at the **beginning** of a Doubly Linked List.
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 class Node {
@@ -25,23 +25,23 @@ public class Main {
     public static void insertAtBeginning(int newData) {
         Node newNode = new Node(newData);
 
-        // Make next of new node as head and previous as null
+        // Naye node ke next ko current head banao aur prev ko null
         newNode.next = head;
         newNode.prev = null;
 
-        // Change prev of head node to new node
+        // Agar head empty nahi tha, toh purane head ke prev ko naye node se link karo
         if (head != null) {
             head.prev = newNode;
         }
 
-        // Move the head to point to the new node
+        // Head pointer ko update karke naye node par set kar do
         head = newNode;
     }
 
     public static void main(String[] args) {
         insertAtBeginning(30);
         insertAtBeginning(20);
-        insertAtBeginning(10); // 10 will become the new head
+        insertAtBeginning(10); // 10 ab naya head ban jayega
 
         Node current = head;
         while (current != null) {
@@ -63,6 +63,7 @@ public class Main {
 
 ---
 
-## Key Points
+## Key Points (Khaas Baatein)
 
-- Always update the `prev` pointer of the old head to point to the new node, **unless** the list was empty.
+- DLL mein head insert karte waqt purane head ke `prev` pointer ko hamesha naye node se connect karna hota hai (jab tak ki initial list completely empty na ho).
+

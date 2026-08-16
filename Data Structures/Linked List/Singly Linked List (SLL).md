@@ -1,16 +1,17 @@
+# Singly Linked List (SLL)
+
 #dsa #java #linkedlist #sll
-## Definition
 
-A **Singly Linked List (SLL)** is a linear data structure in which each element (called a **node**) contains:
+## Formal Definition
 
-- **Data** – the value stored in the node.
-- **Next** – a reference (pointer) to the next node.
+A **Singly Linked List (SLL)** is a linear data structure in which each element (called a **node**) contains data and a reference (pointer) to the next node in the sequence, with the last node pointing to `null`.
 
-The last node points to `null`.
+- **Data** – node mein store ki gayi actual value.
+- **Next** – agle node ka memory address/pointer.
 
 ---
 
-## Structure
+## Visual Structure
 
 ```text
 Head
@@ -23,7 +24,7 @@ Head
 
 ---
 
-## Node Declaration
+## Node Declaration (Java)
 
 ```java
 class Node {
@@ -39,36 +40,36 @@ class Node {
 
 ---
 
-# Common Operations
+# Common Operations (Standard Operations)
 
-| Method                | Description                                  |
+| Method | Description (Kaam) |
 | --------------------- | -------------------------------------------- |
-| `insertAtBeginning()` | Inserts a node at the beginning of the list. |
-| `insertAtEnd()`       | Inserts a node at the end of the list.       |
-| `insertAtPosition()`  | Inserts a node at a specified position.      |
-| `deleteAtBeginning()` | Removes the first node.                      |
-| `deleteAtEnd()`       | Removes the last node.                       |
-| `deleteByValue()`     | Removes the node with the specified value.   |
-| `search()`            | Searches for a value in the list.            |
-| `display()`           | Traverses and prints all nodes.              |
-| `isEmpty()`           | Checks whether the list is empty.            |
-| `size()`              | Returns the number of nodes in the list.     |
+| `insertAtBeginning()` | List ke starting (Head) par naya node add karta hai. |
+| `insertAtEnd()` | List ke end (Tail) par naya node add karta hai. |
+| `insertAtPosition()` | Specified position/index par node insert karta hai. |
+| `deleteAtBeginning()` | Pehle node (Head) ko remove karta hai. |
+| `deleteAtEnd()` | Last node ko remove karta hai. |
+| `deleteByValue()` | Specific value wale node ko remove karta hai. |
+| `search()` | List mein kisi value ko dhundta hai. |
+| `display()` | Saare nodes ko traverse karke print karta hai. |
+| `isEmpty()` | Check karta hai kya list empty hai (`head == null`). |
+| `size()` | Total nodes ki count return karta hai. |
 
 ---
 
-# Advantages
+# Advantages (Fayde)
 
-- Dynamic size (can grow or shrink at runtime).
-- Efficient insertion and deletion at the beginning.
-- Does not require contiguous memory.
+- Dynamic size (runtime par easily scale ho sakta hai).
+- Beginning par insertion aur deletion super fast ($O(1)$) hota hai.
+- Contiguous memory allocation ki restriction nahi hoti.
 
 ---
 
-# Disadvantages
+# Disadvantages (Nuksan)
 
-- Sequential access only (no direct indexing).
-- Extra memory required for storing pointers.
-- Traversal is only in the forward direction.
+- Direct indexing ($O(1)$ access) allow nahi karta, sirf sequential traversal ho sakta hai.
+- Next pointer store karne ke liye extra memory ki zaroorat hoti hai.
+- Traversal sirf aage (forward direction) hi kar sakte hain (backward traverse nahi ho sakta).
 
 ---
 
@@ -76,21 +77,21 @@ class Node {
 
 | Operation | Complexity |
 |-----------|------------|
-| Insert at Beginning | **O(1)** |
-| Insert at End | **O(n)** |
-| Insert at Position | **O(n)** |
-| Delete at Beginning | **O(1)** |
-| Delete at End | **O(n)** |
-| Search | **O(n)** |
-| Traverse (Display) | **O(n)** |
+| Insert at Beginning | **$O(1)$** |
+| Insert at End | **$O(N)$** |
+| Insert at Position | **$O(N)$** |
+| Delete at Beginning | **$O(1)$** |
+| Delete at End | **$O(N)$** |
+| Search | **$O(N)$** |
+| Traverse (Display) | **$O(N)$** |
 
 ---
 
-# Quick Revision
+# Quick Revision (Dhyaan Dene Yagya Baatein)
 
-- Stores data in **nodes**.
-- Each node contains **data** and a **next** pointer.
-- Last node points to `null`.
-- Dynamic memory allocation.
-- Forward traversal only.
-- No random access.
+- Data **Nodes** mein store hota hai.
+- Har node mein **Data** aur **Next** pointer hota hai.
+- Last node ka Next pointer `null` par point karta hai.
+- Memory allocation dynamic hoti hai.
+- Sirf forward direction traversal possible hai.
+- Random access support nahi hota.

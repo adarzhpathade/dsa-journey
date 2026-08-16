@@ -1,4 +1,4 @@
-Insertion in an ArrayList
+# Insertion in an ArrayList
 
 #dsa #java #arraylist
 
@@ -10,14 +10,14 @@ Insert an element into a specific index of an **ArrayList**.
 
 ---
 
-## Approach
+## Approach (Tarika)
 
-- Use `list.add(element)` to add an element at the end of the ArrayList.
-- Use `list.add(index, element)` to insert an element at a specific index.
+- ArrayList ke end mein element add karne ke liye `list.add(element)` method ka use karo.
+- Specific index par element insert karne ke liye `list.add(index, element)` method ka use karo.
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 import java.util.ArrayList;
@@ -26,15 +26,15 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
         
-        // Appending to the end
+        // End mein elements append karna
         list.add(10);
         list.add(20);
         list.add(40);
         
         System.out.println("Before insertion: " + list);
 
-        // Inserting at specific index
-        list.add(2, 30); // Insert 30 at index 2
+        // Specific index par element insert karna
+        list.add(2, 30); // Index 2 par '30' insert karo
 
         System.out.println("After insertion: " + list);
     }
@@ -56,12 +56,13 @@ After insertion: [10, 20, 30, 40]
 
 | Operation | Complexity |
 |-----------|------------|
-| Append (at end) | O(1) amortized |
-| Insert (at index) | O(N) |
+| Append (at end) | $O(1)$ amortized |
+| Insert (at index) | $O(N)$ |
 
 ---
 
-## Key Points
+## Key Points (Khaas Baatein)
 
-- `ArrayList` handles resizing and element shifting internally.
-- Inserting at index 0 or in the middle is O(N) because elements still need to be shifted under the hood.
+- `ArrayList` memory resizing aur elements ka right shift internal code se manage kar leta hai.
+- Index 0 ya middle mein insert karna $O(N)$ hota hai kyunki internal elements ko Shift hona padta hai.
+

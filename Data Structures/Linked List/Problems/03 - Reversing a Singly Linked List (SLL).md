@@ -1,4 +1,4 @@
-Reversing a Singly Linked List (SLL)
+# Reversing a Singly Linked List (SLL)
 
 #dsa #java #linkedlist #sll
 
@@ -10,21 +10,21 @@ Reverse a **Singly Linked List** so that the last node becomes the first node an
 
 ---
 
-## Approach
+## Approach (Iterative Three-Pointer Technique)
 
-- Initialize three pointers:
+- Teen pointers initialize karo:
   - `prev` → `null`
   - `current` → `head`
   - `next` → `null`
-- Traverse the list.
-- Store the next node in `next`.
-- Reverse the current node's link.
-- Move `prev` and `current` one step forward.
-- After traversal, assign `head = prev`.
+- Tab tak list traverse karo jab tak `current != null` rahe.
+- Agle node ko `next` pointer mein save kar lo (`next = current.next`).
+- Current node ke link ko piche turn kar do (`current.next = prev`).
+- `prev` aur `current` pointers ko ek-ek step aage badhao.
+- Traversal complete hone ke baad, `head` ko `prev` par point kara do (`head = prev`).
 
 ---
 
-## Code
+## Code (Java)
 
 ```java
 class Node {
@@ -47,14 +47,14 @@ public class Main {
 
         while (current != null) {
 
-            next = current.next;
-            current.next = prev;
+            next = current.next;    // Agle node ko store karo
+            current.next = prev;    // Link reverse karo
 
-            prev = current;
+            prev = current;         // Pointers ko aage move karo
             current = next;
         }
 
-        return prev;
+        return prev; // Naya head return karo
     }
 
     static void printList(Node head) {
@@ -151,7 +151,7 @@ prev = 40
 current = null
 ```
 
-### Final List
+### Final Reversed List
 
 ```text
 Head
@@ -162,26 +162,18 @@ Head
 
 ---
 
-## Time Complexity
+## Time & Space Complexity
 
-| Operation | Complexity |
-|-----------|------------|
-| Reverse | **O(n)** |
-
----
-
-## Space Complexity
-
-| Complexity |
-|------------|
-| **O(1)** |
+| Operation | Time Complexity | Auxiliary Space |
+|-----------|-----------------|------------------|
+| Reverse | **$O(N)$** | **$O(1)$** |
 
 ---
 
-## Key Points
+## Key Points (Khaas Baatein)
 
-- Uses **three pointers**: `prev`, `current`, and `next`.
-- Reverse the `next` pointer of every node.
-- The last node becomes the new **head**.
-- The list is reversed **in-place**, requiring no extra memory.
-- This is the most efficient iterative approach.
+- **Teen pointers** ka use hota hai: `prev`, `current`, aur `next`.
+- Har node ke `next` pointer direction ko reverse kar diya jata hai.
+- Original list ka last node final reversed list ka naya **head** ban jata hai.
+- Reversal **in-place** hoti hai, isliye zero extra memory allocate hoti hai ($O(1)$ space).
+- Single pass mein solve hone wala sabse efficient iterative algorithm hai.

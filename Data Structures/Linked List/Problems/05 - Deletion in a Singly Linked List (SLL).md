@@ -1,3 +1,5 @@
+# Deletion in a Singly Linked List (SLL)
+
 #dsa #java #linkedlist #sll #deletion
 
 > Concept: [[Singly Linked List (SLL)]]
@@ -11,15 +13,13 @@ Implement deletion operations in a Singly Linked List:
 
 ---
 
-## Approach
+## Approach & Code (Sub-operations)
 
-### `deleteFromBeginning()`
+### 1. `deleteFromBeginning()`
 
-- Check if the list is empty.
-- Move the head to the next node.
-- The previous head node is automatically removed by the Garbage Collector.
-
-### Code
+- Check karo kya list empty (`head == null`) hai.
+- `head` pointer ko uske next node par shift kar do (`head = head.next`).
+- Purana pehla node Java ka Garbage Collector automatically memory se remove kar dega.
 
 ```java
 public void deleteFromBeginning() {
@@ -32,30 +32,19 @@ public void deleteFromBeginning() {
 }
 ```
 
-### Example
+#### Visual Example
 
-Before
-
-```text
-10 → 20 → 30 → 40 → null
-```
-
-After
-
-```text
-20 → 30 → 40 → null
-```
+Before: `10 → 20 → 30 → 40 → null`  
+After: `20 → 30 → 40 → null`
 
 ---
 
-### `deleteFromEnd()`
+### 2. `deleteFromEnd()`
 
-- Check if the list is empty.
-- If only one node exists, make the head `null`.
-- Traverse to the second last node.
-- Set its `next` to `null`.
-
-### Code
+- Check karo kya list empty hai.
+- Agar list mein sirf ek hi node hai, toh `head = null` set karke return kar jao.
+- List ke second last node (`temp.next.next != null`) tak traverse karo.
+- Second last node ke `next` pointer ko `null` par set kar do (`temp.next = null`).
 
 ```java
 public void deleteFromEnd() {
@@ -79,30 +68,19 @@ public void deleteFromEnd() {
 }
 ```
 
-### Example
+#### Visual Example
 
-Before
-
-```text
-10 → 20 → 30 → 40 → null
-```
-
-After
-
-```text
-10 → 20 → 30 → null
-```
+Before: `10 → 20 → 30 → 40 → null`  
+After: `10 → 20 → 30 → null`
 
 ---
 
-### `deleteFromPosition()`
+### 3. `deleteFromPosition()`
 
-- Validate the position.
-- If the position is `1`, delete from the beginning.
-- Traverse to the node before the desired position.
-- Skip the node to be deleted by updating the links.
-
-### Code
+- Check karo position valid hai ya nahi.
+- Agar position `1` hai, toh `deleteFromBeginning()` call karo.
+- Targeted position se ek pehle wale node (`position - 1`) tak traverse karo.
+- Links update karke middle node ko skip kar do (`temp.next = temp.next.next`).
 
 ```java
 public void deleteFromPosition(int position) {
@@ -137,28 +115,18 @@ public void deleteFromPosition(int position) {
 }
 ```
 
-### Example
+#### Visual Example
 
-Before
-
-```text
-10 → 20 → 30 → 40 → 50 → null
-```
-
-Delete node at position `3`
-
-After
-
-```text
-10 → 20 → 40 → 50 → null
-```
+Before: `10 → 20 → 30 → 40 → 50 → null`  
+Deleting node at position `3`  
+After: `10 → 20 → 40 → 50 → null`
 
 ---
 
 ## Time & Space Complexity
 
-| Operation | Time | Space |
+| Operation | Time Complexity | Auxiliary Space |
 | ---------- | :--: | :---: |
-| Delete from Beginning | `O(1)` | `O(1)` |
-| Delete from End | `O(n)` | `O(1)` |
-| Delete from Position | `O(n)` | `O(1)` |
+| Delete from Beginning | **$O(1)$** | **$O(1)$** |
+| Delete from End | **$O(N)$** | **$O(1)$** |
+| Delete from Position | **$O(N)$** | **$O(1)$** |

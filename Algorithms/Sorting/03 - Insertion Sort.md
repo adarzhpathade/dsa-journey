@@ -1,27 +1,31 @@
-Insertion Sort
+# Insertion Sort
 
 #dsa #algorithms #sorting #java
 
-## 1. The "Explain like I'm 5" Definition
+## 1. Formal Definition
 
-Imagine you're playing a card game and you're holding a sorted hand of cards. When you pick up a new card from the deck, you look at your hand from right to left, and you insert the new card exactly in its correct sorted position.
+**Insertion Sort** is a simple comparison-based sorting algorithm that builds the final sorted array one element at a time by repeatedly taking the next element and inserting it into its correct position within the already sorted portion.
 
-**Insertion Sort** works exactly like that. It builds the sorted array one item at a time by picking the next element and inserting it into its correct spot among the already-sorted elements.
+## 2. "Explain like I'm 5" (Aasan Bhasha Mein)
 
-## 2. Real-Life Analogy
+Socho tum cards ka game khel rahe ho aur tumhare haath mein pehle se sorted cards ka set hai. Jab tum deck se naya card uthate ho, toh tum right-to-left cards check karte ho aur naye card ko exact uske sahi sorted position par insert kar dete ho.
 
-Sorting money in your wallet. You pull out a \$10 bill. If you already have a \$1, \$5, and \$20 bill in order, you slide the \$10 bill right between the \$5 and the \$20. 
+**Insertion Sort** bilkul isi tarah kaam karta hai. Yeh ek-ek karke element leta hai aur ise pehle se sorted elements ke beech mein sahi jagah fit (insert) kar deta hai.
 
-## 3. How it Works (Step-by-Step)
+## 3. Real-Life Analogy
 
-1. Assume the first element (index 0) is already "sorted".
-2. Take the next element (index 1). This is your `key`.
-3. Compare the `key` to the elements before it.
-4. Shift all elements that are larger than the `key` one position to the right.
-5. Insert the `key` into the empty space.
-6. Move to the next element (index 2) and repeat the process.
+Wallet mein paise arrange karna. Tumne \$10 ka note nikala. Agar tumhare wallet mein pehle se \$1, \$5 aur \$20 sorted hain, toh tum \$10 wale note ko \$5 aur \$20 ke bilkul beech mein slide kar dete ho.
 
-## 4. The Code (Java)
+## 4. How it Works (Step-by-Step Logic)
+
+1. Maan lo pehla element (index 0) pehle se ही "sorted" hai.
+2. Agla element lo (index 1). Yeh tumhara `key` hai.
+3. `key` ko uske pehle wale elements se compare karo.
+4. `key` se bade jitne bhi elements hain, unhe ek position right shift kar do.
+5. Khali bani jagah par `key` ko insert kar do.
+6. Agle element (index 2) par jao aur process repeat karo.
+
+## 5. The Code (Java)
 
 ```java
 import java.util.Arrays;
@@ -34,14 +38,14 @@ public class Main {
             int key = arr[i];
             int j = i - 1;
 
-            // Move elements of arr[0..i-1], that are greater than key,
-            // to one position ahead of their current position
+            // arr[0..i-1] ke elements jo key se bade hain,
+            // unhe unke current position se ek index aage shift karo
             while (j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j];
                 j = j - 1;
             }
             arr[j + 1] = key;
-        }
+            }
     }
 
     public static void main(String[] args) {
@@ -52,29 +56,30 @@ public class Main {
 }
 ```
 
-## 5. Complexity Analysis (The Interview Stuff)
+## 6. Complexity Analysis (Interview Perspective)
 
 | Scenario | Time Complexity | Explanation |
 | :--- | :--- | :--- |
-| **Best Case** | $O(N)$ | The array is already sorted. The inner `while` loop never executes because the `key` is always larger than the element before it. |
-| **Worst Case** | $O(N^2)$ | The array is reverse sorted. Every element has to be shifted to the very beginning. |
+| **Best Case** | $O(N)$ | Array pehle se sorted hai. Inner `while` loop ek baar bhi execute nahi hota kyunki `key` hamesha pichle element se bada milta hai. |
+| **Worst Case** | $O(N^2)$ | Array reverse sorted hai. Har ek element ko starting index tak shift karna padta hai. |
 | **Average Case** | $O(N^2)$ | Random data. |
 
-- **Space Complexity:** $O(1)$ because it sorts in-place.
+- **Space Complexity:** $O(1)$ kyunki in-place sorting hoti hai.
 
-## 6. When to use it?
+## 7. Kab Use Karein? (When to Use)
 
-- When the array is **small** (typically under 50 elements).
-- When the array is **almost sorted**. In this scenario, Insertion Sort runs very close to $O(N)$ time.
-- Highly advanced sorting algorithms like Python's `Timsort` or Java's `Arrays.sort()` use Insertion Sort internally for small chunks of data because it has extremely low overhead.
+- Jab array **chota (small)** ho (generally under 50 elements).
+- Jab array **lagbhag (nearly) sorted** ho. Is scenario mein Insertion Sort $O(N)$ ke aaspas run hota hai.
+- Highly advanced sorting algorithms (jaise Python ka `Timsort` ya Java ka `Arrays.sort()`) small chunks ke liye internally Insertion Sort use karte hain kyunki iska overhead bahut kam hota hai.
 
-## 7. Pros & Cons
+## 8. Pros & Cons
 
 **Pros:**
-- Simple to implement.
-- Very efficient for small or nearly sorted datasets.
-- Stable sort (equal elements retain their relative order).
-- In-place sorting.
+- Code aur logic simple hai.
+- Small ya nearly sorted datasets ke liye highly efficient.
+- Stable sort (equal elements ka relative order maintain rehta hai).
+- In-place sorting ($O(1)$ space).
 
 **Cons:**
-- Inefficient for large, random datasets ($O(N^2)$).
+- Bade random datasets ke liye inefficient hai ($O(N^2)$ time).
+

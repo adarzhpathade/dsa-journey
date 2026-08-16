@@ -1,8 +1,10 @@
+# Doubly Linked List (DLL)
+
 #dsa #java #linkedlist #dll
-## Definition
+
+## Formal Definition
 
 A **Doubly Linked List (DLL)** is a linear data structure in which each element (called a **node**) contains three parts:
-
 - **Prev** – a reference (pointer) to the previous node.
 - **Data** – the value stored in the node.
 - **Next** – a reference (pointer) to the next node.
@@ -11,7 +13,7 @@ The first node's `prev` and the last node's `next` point to `null`.
 
 ---
 
-## Structure
+## Visual Structure
 
 ```text
  Null        Head                                              Null
@@ -25,11 +27,11 @@ The first node's `prev` and the last node's `next` point to `null`.
  Null                                                          Null
 ```
 
-*(Note: The first node's Prev is Null, and the last node's Next is Null)*
+*(Note: First node ka Prev Null hota hai, aur last node ka Next Null hota hai)*
 
 ---
 
-## Node Declaration
+## Node Declaration (Java)
 
 ```java
 class Node {
@@ -47,35 +49,35 @@ class Node {
 
 ---
 
-# Common Operations
+# Common Operations (Standard Operations)
 
-| Method                | Description                                  |
+| Method | Description (Kaam) |
 | --------------------- | -------------------------------------------- |
-| `insertAtBeginning()` | Inserts a node at the beginning of the list. |
-| `insertAtEnd()`       | Inserts a node at the end of the list.       |
-| `insertAtPosition()`  | Inserts a node at a specified position.      |
-| `deleteAtBeginning()` | Removes the first node.                      |
-| `deleteAtEnd()`       | Removes the last node.                       |
-| `deleteByValue()`     | Removes the node with the specified value.   |
-| `search()`            | Searches for a value in the list.            |
-| `displayForward()`    | Traverses and prints nodes from head to tail.|
-| `displayBackward()`   | Traverses and prints nodes from tail to head.|
+| `insertAtBeginning()` | Head par naya node add karta hai. |
+| `insertAtEnd()` | Tail (end) par naya node add karta hai. |
+| `insertAtPosition()` | Specified position par node insert karta hai. |
+| `deleteAtBeginning()` | Pehle node ko remove karta hai. |
+| `deleteAtEnd()` | Last node ko remove karta hai. |
+| `deleteByValue()` | Specific value wale node ko delete karta hai. |
+| `search()` | List mein target element search karta hai. |
+| `displayForward()` | Head se Tail ki taraf nodes print karta hai. |
+| `displayBackward()` | Tail se Head ki taraf (reverse) print karta hai. |
 
 ---
 
-# Advantages
+# Advantages (Fayde)
 
-- Can be traversed in both forward and backward directions.
-- Deletion is more efficient if the node to be deleted is given (no need to traverse to find the previous node).
-- Inserting a node before a given node is easier compared to a Singly Linked List.
+- List ko forward aur backward (dono directions mein) traverse kar sakte hain.
+- Deletion efficient hota hai agar deleted node ka reference directly diya gaya ho (pichle node par traverse karne ki zaroorat nahi padti).
+- Given node se pehle naya node insert karna SLL ke comparison mein continuous pointer update se easily ho jata hai.
 
 ---
 
-# Disadvantages
+# Disadvantages (Nuksan)
 
-- Extra memory is required for storing the `prev` pointer in each node.
-- More complex implementation (need to manage two pointers during insertion/deletion).
-- Still no direct indexing (random access).
+- Each node mein extra `prev` pointer store karne se memory overhead badh jata hai.
+- Implementation thodi complex hai (insertion/deletion ke waqt do pointers update karne padte hain).
+- Random access ($O(1)$ direct index access) support nahi karta.
 
 ---
 
@@ -83,20 +85,21 @@ class Node {
 
 | Operation | Complexity |
 |-----------|------------|
-| Insert at Beginning | **O(1)** |
-| Insert at End | **O(1)** *(if tail pointer exists)* or **O(n)** |
-| Insert at Position | **O(n)** |
-| Delete at Beginning | **O(1)** |
-| Delete at End | **O(1)** *(if tail pointer exists)* or **O(n)** |
-| Search | **O(n)** |
-| Traverse | **O(n)** |
+| Insert at Beginning | **$O(1)$** |
+| Insert at End | **$O(1)$** *(agar tail pointer maintaned ho)* ya **$O(N)$** |
+| Insert at Position | **$O(N)$** |
+| Delete at Beginning | **$O(1)$** |
+| Delete at End | **$O(1)$** *(agar tail pointer maintaned ho)* ya **$O(N)$** |
+| Search | **$O(N)$** |
+| Traverse | **$O(N)$** |
 
 ---
 
-# Quick Revision
+# Quick Revision (Dhyaan Dene Yagya Baatein)
 
-- Stores data in **nodes**.
-- Each node contains **data**, a **prev** pointer, and a **next** pointer.
-- Bidirectional traversal (forward and backward).
-- Higher memory overhead per node than SLL.
-- Deleting a known node is O(1).
+- Data **Nodes** mein store hota hai.
+- Node structure: **prev**, **data**, aur **next** pointers.
+- Bidirectional traversal (Aage aur Peeche dono taraf traverse kar sakte hain).
+- SLL ke comparison mein memory overhead thoda zyaada hota hai.
+- Target node pointer pata ho toh deletion $O(1)$ ho jata hai.
+

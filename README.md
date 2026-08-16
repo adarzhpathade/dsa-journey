@@ -1,10 +1,11 @@
 # DSA Journey
 
-A comprehensive collection of my notes and implementations for Data Structures, Algorithms, and coding problems from LeetCode and GeeksforGeeks.
+Data Structures, Algorithms, aur LeetCode & GeeksforGeeks problems ki complete notes aur implementations ka collection.
 
-> **Note**: This folder can be opened directly as a vault in **[Obsidian](https://obsidian.md/)** to view and navigate the interconnected notes efficiently.
+> **Note**: Is folder ko aap directly **[Obsidian](https://obsidian.md/)** mein vault ke tarah open kar sakte ho interactive note-taking aur navigation ke liye.
 
 ## Contents
-- **Algorithms**: Searching and Sorting algorithms.
-- **Data Structures**: Arrays, ArrayLists, Linked Lists, Hashing.
-- **Problems**: Practice problems from LeetCode and GeeksforGeeks.
+- **Algorithms**: Searching aur Sorting algorithms ki visual aur easy-to-understand guides.
+- **Data Structures**: Arrays, ArrayLists, Linked Lists, aur Hashing ke detailed notes.
+- **Problems**: LeetCode aur GeeksforGeeks ke step-by-step code solutions aur explanations.
+

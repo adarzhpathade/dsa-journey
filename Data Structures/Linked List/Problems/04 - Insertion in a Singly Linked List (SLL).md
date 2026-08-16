@@ -1,4 +1,4 @@
-Insertion in a Singly Linked List (SLL)
+# Insertion in a Singly Linked List (SLL)
 
 #dsa #java #linkedlist #sll #insertion
 
@@ -13,15 +13,13 @@ Implement insertion operations in a Singly Linked List:
 
 ---
 
-## Approach
+## Approach & Code (Sub-operations)
 
-### `insertAtBeginning()`
+### 1. `insertAtBeginning()`
 
-- Create a new node.
-- Point the new node to the current head.
-- Update the head to the new node.
-
-### Code
+- Naya node create karo.
+- Naye node ke `next` pointer ko current `head` par point karao.
+- `head` ko update karke naye node par set kar do.
 
 ```java
 public void insertAtBeginning(int data) {
@@ -31,30 +29,19 @@ public void insertAtBeginning(int data) {
 }
 ```
 
-### Example
+#### Visual Example
 
-Before
-
-```text
-10 → 20 → 30 → null
-```
-
-After
-
-```text
-5 → 10 → 20 → 30 → null
-```
+Before: `10 → 20 → 30 → null`  
+After inserting `5` at beginning: `5 → 10 → 20 → 30 → null`
 
 ---
 
-### `insertAtEnd()`
+### 2. `insertAtEnd()`
 
-- Create a new node.
-- If the list is empty, make the new node the head.
-- Traverse until the last node.
-- Connect the last node to the new node.
-
-### Code
+- Naya node create karo.
+- Agar list empty hai (`head == null`), toh naye node ko hi `head` bana do.
+- List ke last node tak traverse karo (`while(temp.next != null)`).
+- Last node ke `next` ko naye node se connect kar do.
 
 ```java
 public void insertAtEnd(int data) {
@@ -75,31 +62,19 @@ public void insertAtEnd(int data) {
 }
 ```
 
-### Example
+#### Visual Example
 
-Before
-
-```text
-10 → 20 → 30 → null
-```
-
-After
-
-```text
-10 → 20 → 30 → 40 → null
-```
+Before: `10 → 20 → 30 → null`  
+After inserting `40` at end: `10 → 20 → 30 → 40 → null`
 
 ---
 
-### `insertAtPosition()`
+### 3. `insertAtPosition()`
 
-- Validate the position.
-- If the position is `1`, insert at the beginning.
-- Traverse to the node before the desired position.
-- Adjust the links.
-- Insert the new node.
-
-### Code
+- Position valid hai ya nahi check karo.
+- Agar position `1` hai, toh `insertAtBeginning()` call karo.
+- Specified position se ek pehle wale node (i.e. `position - 1`) tak traverse karo.
+- Naye node ke `next` ko `temp.next` par point karao, fir `temp.next = newNode` set karo.
 
 ```java
 public void insertAtPosition(int data, int position) {
@@ -131,26 +106,17 @@ public void insertAtPosition(int data, int position) {
 }
 ```
 
-### Example
+#### Visual Example
 
-Before
-
-```text
-10 → 20 → 40 → 50 → null
-```
-
-After inserting `30` at position `3`
-
-```text
-10 → 20 → 30 → 40 → 50 → null
-```
+Before: `10 → 20 → 40 → 50 → null`  
+After inserting `30` at position `3`: `10 → 20 → 30 → 40 → 50 → null`
 
 ---
 
 ## Time & Space Complexity
 
-| Operation | Time | Space |
+| Operation | Time Complexity | Auxiliary Space |
 | ---------- | :--: | :---: |
-| Insert at Beginning | `O(1)` | `O(1)` |
-| Insert at End | `O(n)` | `O(1)` |
-| Insert at Position | `O(n)` | `O(1)` |
+| Insert at Beginning | **$O(1)$** | **$O(1)$** |
+| Insert at End | **$O(N)$** | **$O(1)$** |
+| Insert at Position | **$O(N)$** | **$O(1)$** |
